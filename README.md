@@ -49,4 +49,4 @@ You will now notice an if statement where the condition is always false. To sati
 The relevant lines here are a `MOV` instruction that initializes a variable to `0x1`, and a later `CMP` that checks if it is equal to `0x0`. If the comparison succeeds, then the subsequent `JZ` jump instruction activates.
 To modify an assembly instruction, select it in the editor, right-click, and click "Patch instruction". From there you can change the code to do what you want.
 
-After modifying the assembly code, you can export the edited binary from Ghidra. Click File -> Export Program..., select the "Original File" format, and save it as `cave_patched`. Try running this program and see if you can beat the game.
+After modifying the assembly code, you can export the edited binary from Ghidra. Click File -> Export Program..., select the "Original File" format, and save it as `cave_patched`. Then, mark it as executable using `chmod +x cave_patched`, try running it, and see if you can beat the game.
