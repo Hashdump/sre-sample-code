@@ -1,6 +1,8 @@
 # Reverse Engineering Activity
 
-To complete this segment, you need to analyze the program to find the name of the statue guard. For this activity, we will use the Ghidra reverse engineering framework developed by the National Security Agency. In the club meeting we provided a VM image containing Ghidra and the programs in this repository, but these instructions should be applicable to other environments as well.
+This repository contains some sample programs to decompile using the Ghidra reverse engineering framework. The `cave` binary presents itself as a text adventure game, but is impossible to complete without decompilation.
+
+In the club meeting we provided a VM image containing Ghidra and the programs in this repository, but these instructions should be applicable to other environments as well.
 
 ## Setup
 
