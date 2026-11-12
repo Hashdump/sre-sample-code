@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define BUFSIZE 16
+#define BUFSIZE 32
 
 unsigned long read_stdin(char *buf, int size) {
     fgets(buf, BUFSIZE, stdin);
@@ -22,7 +22,7 @@ unsigned long read_stdin(char *buf, int size) {
 }
 
 void password() {
-    char *target = "Zfxnddzxb";
+    char *target = "Affordable Computer Hardware";
     char input[BUFSIZE];
 
     puts("As you approach the cave, a statue bars your path. Slowly and methodically, it turns to face you, and after it has settled to a stop, it begins to speak.\n\n\"Hello there, strange person from beyond. Before you may enter the great cave, I must ask one question from you. What is my name?\"");
@@ -31,7 +31,7 @@ void password() {
         read_stdin(input, BUFSIZE);
 
         if (strncmp(input, target, BUFSIZE) == 0) {
-            printf("\"That is correct. I do not get many visitors, so I am pleased to hear that outsiders still remember the name of %s.\"\n\nYou refrain from mentioning that you have never heard of %s before. The statue bows, and you hear rumbling stone as a stairway opens in the wall. You step into the opening, beginning your descent into the darkness below.\n\n", target, target);
+            printf("\"That is correct. I do not get many visitors, so I am pleased to hear that outsiders still remember the name of %s.\"\n\nYou feel like you should remember %s, but you do not. Nonetheless, the statue bows, and you hear rumbling stone as a stairway opens in the wall. You step into the opening, beginning your descent into the darkness below.\n\n", target, target);
             break;
         }
 
@@ -40,31 +40,25 @@ void password() {
 }
 
 int char_to_direction(char dir_in) {
-    switch (dir_in) {
-        case 'N':
-        case 'n':
-            return 1;
-        case 'S':
-        case 's':
-            return 2;
-        case 'W':
-        case 'w':
-            return 3;
-        case 'E':
-        case 'e':
-            return 4;
-        default:
-            return 0;
+    if (dir_in == 'N' || dir_in == 'n') {
+        return 1;
+    } else if (dir_in == 'S' || dir_in == 's') {
+        return 2;
+    } else if (dir_in == 'W' || dir_in == 'w') {
+        return 3;
+    } else if (dir_in == 'E' || dir_in == 'e') {
+        return 4;
     }
+    return 0;
 }
 
 void maze() {
-    int target[10] = {1, 4, 2, 4, 1, 1, 3, 1, 4, 1};
+    int target[5] = {1, 4, 2, 4, 1};
 
     char input[BUFSIZE];
 
     int pos = 0;
-    int goal = 10;
+    int goal = 5;
 
     puts("As you arrive at a large underground chamber, you catch a glimpse of a rickety-looking maze built from wooden bridges. However, before you can get a good look, the door closes behind you and shrouds the room in darkness. Bathed in near-total quiet, you hear a faint sound of dripping water.");
 
@@ -102,7 +96,7 @@ void door() {
     if (enable_boulder) {
         puts("Unfortunately, a large boulder sits blocking the exit. You try to move it out of the way, but it is far too heavy. It seems your adventure has ended here... but doubt still lingers within you. Could there be another way?\n\nGAME OVER.");
     } else {
-        puts("When you arrive, you find that the door is already open. Light shines at you from within, and you push forward to see what lies beyond.\n\nYOU WIN?\n\nCongratulations on solving the puzzles of the cave. This game was inspired by The Beginner's Guide, so if you enjoyed it, why not give the original a look?");
+        puts("When you arrive, you find that the door is already open. Light shines at you from within, and you push forward to see what lies beyond.\n\nYOU WIN?\n\nCongratulations on solving the puzzles of the cave.\n\nThis game was inspired by The Beginner's Guide, so if you enjoyed it, why not give the original a look?");
     }
 }
 
